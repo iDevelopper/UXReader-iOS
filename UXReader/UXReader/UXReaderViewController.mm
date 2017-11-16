@@ -395,18 +395,22 @@ constexpr CGFloat minimumContentOffset = 0.0;
 	{
 		if ((mainToolbar = [[UXReaderMainToolbar alloc] initWithDocument:document]))
 		{
-			[view addSubview:mainToolbar]; [mainToolbar setDelegate:self]; // UXReaderMainToolbarDelegate
+            id item = [UXReaderFramework toItem:view];
+            
+            mainToolbar.translatesAutoresizingMaskIntoConstraints = NO;
+
+            [view addSubview:mainToolbar]; [mainToolbar setDelegate:self]; // UXReaderMainToolbarDelegate
 
 			[mainToolbar setAllowShare:(permissions & UXReaderPermissionAllowShare)]; // Set share button state
 
 			[view addConstraint:[NSLayoutConstraint constraintWithItem:mainToolbar attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual
-																toItem:view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
+																toItem:item attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
 
 			[view addConstraint:[NSLayoutConstraint constraintWithItem:mainToolbar attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual
-																toItem:view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
+																toItem:item attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
 
 			NSLayoutConstraint *y = [NSLayoutConstraint constraintWithItem:mainToolbar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual
-																	toItem:view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
+																	toItem:item attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
 
 			[view addConstraint:y]; [mainToolbar setLayoutConstraintY:y];
 		}
@@ -421,16 +425,20 @@ constexpr CGFloat minimumContentOffset = 0.0;
 	{
 		if ((pageToolbar = [[UXReaderPageToolbar alloc] initWithDocument:document]))
 		{
+            id item = [UXReaderFramework toItem:view];
+            
+            pageToolbar.translatesAutoresizingMaskIntoConstraints = NO;
+            
 			[view addSubview:pageToolbar]; [pageToolbar setDelegate:self]; // UXReaderPageToolbarDelegate
 
 			[view addConstraint:[NSLayoutConstraint constraintWithItem:pageToolbar attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual
-																toItem:view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
+																toItem:item attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
 
 			[view addConstraint:[NSLayoutConstraint constraintWithItem:pageToolbar attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual
-																toItem:view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
+																toItem:item attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
 
 			NSLayoutConstraint *y = [NSLayoutConstraint constraintWithItem:pageToolbar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual
-																	toItem:view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
+																	toItem:item attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
 
 			[view addConstraint:y]; [pageToolbar setLayoutConstraintY:y];
 		}
@@ -445,14 +453,16 @@ constexpr CGFloat minimumContentOffset = 0.0;
 	{
 		if ((busyIndicator = [[UIActivityIndicatorView alloc] init]))
 		{
+            id item = [UXReaderFramework toItem:view];
+            
 			[busyIndicator setTranslatesAutoresizingMaskIntoConstraints:NO]; [busyIndicator startAnimating];
 			[view addSubview:busyIndicator]; //[busyControl setBackgroundColor:[UIColor lightGrayColor]];
 
 			[view addConstraint:[NSLayoutConstraint constraintWithItem:busyIndicator attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual
-																toItem:view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
+																toItem:item attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
 
 			[view addConstraint:[NSLayoutConstraint constraintWithItem:busyIndicator attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual
-																toItem:view attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
+																toItem:item attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
 		}
 	}
 }

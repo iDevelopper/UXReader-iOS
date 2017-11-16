@@ -44,6 +44,18 @@ static const char *const UXReaderFrameworkWorkQueue = "UXReaderFramework-WorkQue
 	return singleton; // UXReaderFramework
 }
 
++ (nonnull id)toItem:(nonnull UIView *)view
+{
+    id item;
+    if (@available(iOS 11.0, *)) {
+        item = view.safeAreaLayoutGuide;
+    }
+    else {
+        item = view;
+    }
+    return item;
+}
+
 + (BOOL)isSmallDevice
 {
 	//NSLog(@"%s", __FUNCTION__);

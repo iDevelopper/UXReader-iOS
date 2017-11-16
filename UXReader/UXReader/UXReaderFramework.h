@@ -11,6 +11,8 @@
 
 + (nullable instancetype)sharedInstance;
 
++ (nonnull id)toItem:(nonnull UIView *)view;
+
 + (BOOL)isSmallDevice;
 
 + (CGFloat)statusBarHeight;

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3219AB5D1FBD8AF300AD19F4 /* Strings.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3219AB5C1FBD8AF300AD19F4 /* Strings.pdf */; };
+		32DB53ED1FBC303E00A17881 /* iOS-Security-Guide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 32DB53EC1FBC303E00A17881 /* iOS-Security-Guide.pdf */; };
 		450902CB1E81B23A00D00A58 /* Reader-Toolbar-Options.png in Resources */ = {isa = PBXBuildFile; fileRef = 450902C51E81B23A00D00A58 /* Reader-Toolbar-Options.png */; };
 		450902CC1E81B23A00D00A58 /* Reader-Toolbar-Options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 450902C61E81B23A00D00A58 /* Reader-Toolbar-Options@2x.png */; };
 		450902CD1E81B23A00D00A58 /* Reader-Toolbar-Options@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 450902C71E81B23A00D00A58 /* Reader-Toolbar-Options@3x.png */; };
@@ -71,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3219AB5C1FBD8AF300AD19F4 /* Strings.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Strings.pdf; sourceTree = "<group>"; };
+		32DB53EC1FBC303E00A17881 /* iOS-Security-Guide.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS-Security-Guide.pdf"; sourceTree = "<group>"; };
 		450902C51E81B23A00D00A58 /* Reader-Toolbar-Options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Toolbar-Options.png"; path = "Reader/Graphics/Reader-Toolbar-Options.png"; sourceTree = "<group>"; };
 		450902C61E81B23A00D00A58 /* Reader-Toolbar-Options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Toolbar-Options@2x.png"; path = "Reader/Graphics/Reader-Toolbar-Options@2x.png"; sourceTree = "<group>"; };
 		450902C71E81B23A00D00A58 /* Reader-Toolbar-Options@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Toolbar-Options@3x.png"; path = "Reader/Graphics/Reader-Toolbar-Options@3x.png"; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 		45C07DF41E6729C10082025A /* Reader */ = {
 			isa = PBXGroup;
 			children = (
+				3219AB5C1FBD8AF300AD19F4 /* Strings.pdf */,
+				32DB53EC1FBC303E00A17881 /* iOS-Security-Guide.pdf */,
 				45C07DF81E6729C10082025A /* ReaderAppDelegate.h */,
 				45C07DF91E6729C10082025A /* ReaderAppDelegate.mm */,
 				4569D9D91E68FEB800A242D0 /* ReaderViewController.h */,
@@ -248,8 +254,8 @@
 				TargetAttributes = {
 					45C07DF11E6729C10082025A = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 93KDX755KN;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 5WSVF5KRRY;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -293,9 +299,11 @@
 			files = (
 				45A983441E68F66C00180229 /* Reader-Icon-180.png in Resources */,
 				45A983431E68F66C00180229 /* Reader-Icon-167.png in Resources */,
+				3219AB5D1FBD8AF300AD19F4 /* Strings.pdf in Resources */,
 				45A983421E68F66C00180229 /* Reader-Icon-152.png in Resources */,
 				45A983411E68F66C00180229 /* Reader-Icon-120.png in Resources */,
 				45A983401E68F66C00180229 /* Reader-Icon-076.png in Resources */,
+				32DB53ED1FBC303E00A17881 /* iOS-Security-Guide.pdf in Resources */,
 				450902CE1E81B23A00D00A58 /* Reader-Toolbar-Search.png in Resources */,
 				450902CF1E81B23A00D00A58 /* Reader-Toolbar-Search@2x.png in Resources */,
 				450902D01E81B23A00D00A58 /* Reader-Toolbar-Search@3x.png in Resources */,
@@ -454,26 +462,30 @@
 		45C07E0A1E6729C10082025A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 93KDX755KN;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5WSVF5KRRY;
 				INFOPLIST_FILE = Reader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.icodemonks.Reader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0502e913-81df-43bd-8be3-b6a1ae9129d8";
-				PROVISIONING_PROFILE_SPECIFIER = Development;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		45C07E0B1E6729C10082025A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 93KDX755KN;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5WSVF5KRRY;
 				INFOPLIST_FILE = Reader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.icodemonks.Reader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0502e913-81df-43bd-8be3-b6a1ae9129d8";
-				PROVISIONING_PROFILE_SPECIFIER = Development;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

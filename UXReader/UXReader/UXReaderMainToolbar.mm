@@ -288,7 +288,9 @@
 	if (searchView == nil) // Create UXReaderSearchView
 	{
 		if ((searchView = [[UXReaderSearchView alloc] initWithFrame:CGRectZero]))
-		{
+		{            
+            searchView.translatesAutoresizingMaskIntoConstraints = NO;
+            
 			[view addSubview:searchView]; [searchView setDelegate:self]; // UXReaderSearchViewDelegate
 
 			[view addConstraint:[NSLayoutConstraint constraintWithItem:searchView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual

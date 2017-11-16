@@ -90,6 +90,8 @@
 
 	if (UXReaderShadowView *shadowView = [[UXReaderShadowView alloc] initWithFrame:CGRectZero])
 	{
+        shadowView.translatesAutoresizingMaskIntoConstraints = NO;
+        
 		[shadowView setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:1.0]]; [self addSubview:shadowView];
 
 		[self addConstraint:[NSLayoutConstraint constraintWithItem:shadowView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual

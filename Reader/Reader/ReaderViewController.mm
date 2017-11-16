@@ -204,6 +204,17 @@
 
 // --------------------------------------------------------------------------------------------------------------------------------
 
+    // iOS 11 and iPhone X
+    id item;
+    if (@available(iOS 11.0, *)) {
+        item = self.view.safeAreaLayoutGuide;
+    }
+    else {
+        item = view;
+    }
+    
+// --------------------------------------------------------------------------------------------------------------------------------
+
 	if ((noneLabel = [[UILabel alloc] initWithFrame:CGRectZero])) // UILabel
 	{
 		noneLabel.translatesAutoresizingMaskIntoConstraints = NO; noneLabel.textAlignment = NSTextAlignmentCenter;
@@ -213,10 +224,10 @@
 		[view addSubview:noneLabel];
 
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:noneLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual
-															toItem:view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
+															toItem:item attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
 
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:noneLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual
-															toItem:view attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
+															toItem:item attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
 	}
 
 // --------------------------------------------------------------------------------------------------------------------------------
@@ -232,48 +243,52 @@
 		pdfTableView.exclusiveTouch = YES; pdfTableView.scrollsToTop = NO; pdfTableView.dataSource = self; pdfTableView.delegate = self;
 
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:pdfTableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual
-															toItem:view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0]];
+															toItem:item attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0]];
 
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:pdfTableView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual
-															toItem:view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
+															toItem:item attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
 
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:pdfTableView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual
-															toItem:view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
+															toItem:item attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
 
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:pdfTableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual
-															toItem:view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
+															toItem:item attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
 	}
 
 // --------------------------------------------------------------------------------------------------------------------------------
 
 	if ((upperToolbar = [[ReaderUpperToolbar alloc] initWithFrame:CGRectZero]))
 	{
+        upperToolbar.translatesAutoresizingMaskIntoConstraints = NO;
+        
 		[view addSubview:upperToolbar]; upperToolbar.delegate = self; // ReaderUpperToolbarDelegate
 
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:upperToolbar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual
-															toItem:view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0]];
+															toItem:item attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0]];
 
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:upperToolbar attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual
-															toItem:view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
+															toItem:item attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
 
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:upperToolbar attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual
-															toItem:view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
+															toItem:item attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
 	}
 
 // --------------------------------------------------------------------------------------------------------------------------------
 
 //	if ((lowerToolbar = [[ReaderLowerToolbar alloc] initWithFrame:CGRectZero]))
 //	{
+//      lowerToolbar.translatesAutoresizingMaskIntoConstraints = NO;
+//
 //		[view addSubview:lowerToolbar]; lowerToolbar.delegate = self; // ReaderLowerToolbarDelegate
 //
 //		[view addConstraint:[NSLayoutConstraint constraintWithItem:lowerToolbar attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual
-//															toItem:view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
+//															toItem:item attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
 //
 //		[view addConstraint:[NSLayoutConstraint constraintWithItem:lowerToolbar attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual
-//															toItem:view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
+//															toItem:item attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
 //
 //		[view addConstraint:[NSLayoutConstraint constraintWithItem:lowerToolbar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual
-//															toItem:view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
+//															toItem:item attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
 //	}
 
 // --------------------------------------------------------------------------------------------------------------------------------
@@ -338,7 +353,7 @@
 		if ([extension caseInsensitiveCompare:@"pdf"] == NSOrderedSame) [documentURLs addObject:URL];
 	}
 
-	//[documentURLs addObject:[NSURL URLWithString:@"http://www.vfr.org/iOS-Security-Guide.pdf"]];
+	[documentURLs addObject:[NSURL URLWithString:@"http://www.vfr.org/iOS-Security-Guide.pdf"]];
 
 	[documentURLs sortUsingComparator:^NSComparisonResult(NSURL *url1, NSURL *url2)
 	{
